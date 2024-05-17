@@ -69,16 +69,21 @@ func generateSieveofEratosthenes(target int) []int {
 
 func main() {
 	var target int
+	var display string
 
 	fmt.Printf("The number to calculate primes upto: ")
 	fmt.Scanf("%d", &target)
+	fmt.Printf("Should I display the result? (Y or N): ")
+	fmt.Scanf("%s", &display)
 
 	fastFactorsResult := fastPrimeFactorisation(target)
 	sieveResult := generateSieveofEratosthenes(target)
 
 	if reflect.DeepEqual(fastFactorsResult, sieveResult) {
 		fmt.Println("Cross check result: Pass")
-		fmt.Printf("The primes upto %d:\n%d.\n", target, sieveResult)
+		if display == "Y" {
+			fmt.Printf("The primes upto %d:\n%d.\n", target, sieveResult)
+		}
 	} else {
 		fmt.Errorf("Cross check result: Failed")
 	}

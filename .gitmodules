@@ -1,3 +1,6 @@
 [submodule "colosseum"]
 	path = colosseum
 	url = https://github.com/lakshy-sharma/colosseum
+[submodule "linux"]
+	path = linux
+	url = https://github.com/torvalds/linux
