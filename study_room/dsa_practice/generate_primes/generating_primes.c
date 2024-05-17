@@ -58,7 +58,7 @@ int find_primes(int target_number) {
         eratosthenes_primes = (int*)calloc((target_number/2), sizeof(int));
     }
 
-    // Prime factorisation
+    // Fast prime factorisation
     clock_t start_time, end_time;
     start_time = clock();
     int ref = 0;
@@ -102,15 +102,8 @@ int find_primes(int target_number) {
         check_length = target_number/2;
     }
     for (int i=0; i <= check_length; i++){
-        printf("%d,", eratosthenes_primes[i]);
-    }
-    for (int i=0; i <= check_length; i++){
-        printf("%d,", factorisation_primes[i]);
-    }
-    for (int i=0; i <= check_length; i++){
         if (factorisation_primes[i] != eratosthenes_primes[i]) {
             printf("Cross Check Failed\n");
-            printf("%d,%d\n", factorisation_primes[i], eratosthenes_primes[i]);
             break;
         }
     }
